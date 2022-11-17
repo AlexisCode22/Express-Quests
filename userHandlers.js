@@ -49,7 +49,8 @@ const updateUser = (req, res) => {
   const { firstname, lastname, email, city, language } = req.body;
   database
     .query(
-      "update user set firstname = ?, lastname = ?, email = ?, city = ?, language = ?"
+      "update user set firstname = ?, lastname = ?, email = ?, city = ?, language = ?",
+      [firstname, lastname, email, city, language]
     )
     .then((result) => {
       if (result.affectedRows === 0) {
