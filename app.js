@@ -12,6 +12,8 @@ const welcome = (req, res) => {
   res.send("Welcome to my favourite movie list");
 };
 
+const { hashedPassword } = require("./auth.js");
+
 app.get("/", welcome);
 
 const movieHandlers = require("./movieHandlers");
@@ -26,7 +28,7 @@ const userHandlers = require("./userHandlers");
 
 app.get("/api/users", userHandlers.getUsers);
 app.get("/api/users/:id", userHandlers.getUserById);
-app.post("/api/users", userHandlers.postUser);
+app.post("/api/users", hashedPassword, userHandlers.postUser);
 app.put("/api/users/:id", userHandlers.updateUser);
 app.delete("/api/users/:id", userHandlers.deleteUser);
 

@@ -1,0 +1,19 @@
+###
+
+GET http://localhost:5000/api/movies
+
+###
+
+GET http://localhost:500/api/users/
+
+###
+
+POST http://localhost:500/api/users/
+Content-Type: application/json
+
+{
+    "firstname": "alexis",
+    "lastname": "grospipou",
+    "email": "ad@mail.com",
+    "password": "23416"
+}
